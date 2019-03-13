@@ -1,3 +1,4 @@
 # About this workflow
 
-Please describe how to use your workflow here.
+This workflow is a subset of the UW BIOFAB Cloning category focused on ordering and hydrating primers.
+
