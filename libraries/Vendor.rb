@@ -10,6 +10,7 @@ module Vendor
   class Wrapper
     include Krill::Base
   end
+  private_constant :Wrapper
 
   # Returns the vendor specified by the user
   # TODO: allow for user to specify which vendors they use with Parameters
