@@ -9,11 +9,26 @@ A workflow to order primers [[Download](primer-workflow.aq)] [[Github Repo](http
 - Ben Keller, <bjkeller@uw.edu>
 
 ### Authors
+  - Tileli Amimeur, University of Washington
+  - Nick Bolten, University of Washington
+  - Leandra Brettner, University of Washington
+  - Cameron Cordray, University of Washington
+  - Miles Gander, University of Washington
+  - Samer Halabiya, University of Washington
+  - Seunghee Jang, University of Washington
+  - Yokesh Jayakumar, University of Washington
   - Benjamin Keller, University of Washington
-  - Devin Strickland, University of Washington
   - Erriberto Lopez, University of Washington
   - Jon Luntzel, University of Washington
-  - Yokesh Jayakumar, University of Washington
+  - Abraham Miller, University of Washington
+  - Garrett Newman, University of Washington
+  - Michelle Parks, University of Washington
+  - Sundipta Rao, University of Washington
+  - Ayesha Saleem, University of Washington
+  - Devin Strickland, University of Washington
+  - Chris Takahashi, University of Washington
+  - Yaoyu Yang, University of Washington
+  - David Younger, University of Washington
 
 ### Acknowledgements
 
