@@ -4,21 +4,24 @@
 # such as sequence, length, priming site, etc.
 module PrimerModel
   # Represents a primer object for use in protocols.
-  # Wraps an `Item` with sample type `'Primer'`.
+  # Wraps an `Item` with sample type 'Primer'.
   #
   class Primer
     THIS_SAMPLE_TYPE = 'Primer'
     OVERHANG_SEQUENCE = 'Overhang Sequence'
     ANNEAL_SEQUENCE = 'Anneal Sequence'
     T_ANNEAL = 'T Anneal'
+    private_constant(
+      :THIS_SAMPLE_TYPE, :OVERHANG_SEQUENCE, :ANNEAL_SEQUENCE, :T_ANNEAL
+    )
 
     attr_accessor :item, :sample, :properties
 
     # Instantiates a new Primer.
     #
-    # @param sample [Sample] Sample of SampleType `'Primer'`
+    # @param sample [Sample] Sample of SampleType 'Primer'
     # @return [Primer]  an object for the given sample
-    # @raise [WrongSampleTypeError] if the sample type is not `'Primer'`
+    # @raise [WrongSampleTypeError] if the sample type is not 'Primer'
     def initialize(sample:)
       @sample = sample
 
@@ -33,7 +36,7 @@ module PrimerModel
 
     # Creates a Primer from the given item.
     #
-    # @param item [Item] an Item with `'Primer'` sample type
+    # @param item [Item] an Item with 'Primer' sample type
     def self.from_item(item)
       op = Primer.new(sample: item.sample)
       op.set_item(item)
@@ -43,7 +46,7 @@ module PrimerModel
     # Associates an item with this `Primer` object
     #
     # @param item [Item] the item to associate to this object
-    # @raise [WrongSampleTypeError] if the item sample type is not `'Primer'`
+    # @raise [WrongSampleTypeError] if the item sample type is not 'Primer'
     def set_item(item)
       unless Primer.is_primer?(item.sample)
         msg = "Expected item with sample type #{THIS_SAMPLE_TYPE}. " \
@@ -56,7 +59,7 @@ module PrimerModel
 
     # Indicate whether a Sample is an Primer
     #
-    # @param sample [Sample] the sample 
+    # @param sample [Sample] the sample
     # @return [Boolean] true if the sample is a primer, false otherwise
     def self.is_primer?(sample)
       sample && sample.sample_type.name == THIS_SAMPLE_TYPE
@@ -127,7 +130,6 @@ module PrimerModel
       sequence[-n..-1]
     end
 
-    # 
     def scan(template, pat)
       template.to_enum(:scan, /#{pat}/i).map { Regexp.last_match }
     end
