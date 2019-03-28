@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="172 367 612.5 505.5" width="612.5" height="505.5">
+  <defs>
+    <font-face font-family="Helvetica Neue" font-size="16" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <font-face font-family="Helvetica Neue" font-size="14" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -4 10 8" markerWidth="10" markerHeight="8" color="black">
+      <g>
+        <path d="M 8 0 L 0 -3 L 0 3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <font-face font-family="Helvetica Neue" font-size="24" panose-1="2 0 5 3 0 0 0 2 0 4" units-per-em="1000" underline-position="-100" underline-thickness="50" slope="0" x-height="517" cap-height="714" ascent="951.9958" descent="-212.99744" font-weight="400">
+      <font-face-src>
+        <font-face-name name="HelveticaNeue"/>
+      </font-face-src>
+    </font-face>
+  </defs>
+  <metadata> Produced by OmniGraffle 7.10.2 
+    <dc:date>2019-03-28 16:45:31 +0000</dc:date>
+  </metadata>
+  <g id="Primer_Workflow" stroke="none" fill-opacity="1" stroke-dasharray="none" fill="none" stroke-opacity="1">
+    <title>Primer Workflow</title>
+    <g id="Primer_Workflow: Layer 1">
+      <title>Layer 1</title>
+      <g id="Graphic_2">
+        <path d="M 214 367.5 L 775 367.5 C 779.9706 367.5 784 371.52944 784 376.5 L 784 863 C 784 867.9706 779.9706 872 775 872 L 214 872 C 209.02944 872 205 867.9706 205 863 L 205 376.5 C 205 371.52944 209.02944 367.5 214 367.5 Z" fill="#eee"/>
+        <path d="M 214 367.5 L 775 367.5 C 779.9706 367.5 784 371.52944 784 376.5 L 784 863 C 784 867.9706 779.9706 872 775 872 L 214 872 C 209.02944 872 205 867.9706 205 863 L 205 376.5 C 205 371.52944 209.02944 367.5 214 367.5 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_4">
+        <path d="M 413.2138 472.5 L 521.2138 472.5 C 526.18436 472.5 530.2138 476.52944 530.2138 481.5 L 530.2138 535.5 C 530.2138 540.47056 526.18436 544.5 521.2138 544.5 L 413.2138 544.5 C 408.24323 544.5 404.2138 540.47056 404.2138 535.5 L 404.2138 481.5 C 404.2138 476.52944 408.24323 472.5 413.2138 472.5 Z" fill="white"/>
+        <path d="M 413.2138 472.5 L 521.2138 472.5 C 526.18436 472.5 530.2138 476.52944 530.2138 481.5 L 530.2138 535.5 C 530.2138 540.47056 526.18436 544.5 521.2138 544.5 L 413.2138 544.5 C 408.24323 544.5 404.2138 540.47056 404.2138 535.5 L 404.2138 481.5 C 404.2138 476.52944 408.24323 472.5 413.2138 472.5 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(409.2138 498.5)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="12.064" y="15">Order Primer</tspan>
+        </text>
+      </g>
+      <g id="Graphic_3">
+        <rect x="607.5" y="544.5" width="144" height="36" fill="white"/>
+        <rect x="607.5" y="544.5" width="144" height="36" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(612.5 554)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="14" font-weight="400" fill="black" x="46.518" y="13">Primer</tspan>
+        </text>
+      </g>
+      <g id="Graphic_5">
+        <circle cx="468.25" cy="422.5" r="9.00001438111708" fill="black"/>
+        <circle cx="468.25" cy="422.5" r="9.00001438111708" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Group_6">
+        <g id="Graphic_8">
+          <circle cx="468.25" cy="816" r="9.00001438111708" fill="white"/>
+          <circle cx="468.25" cy="816" r="9.00001438111708" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+        <g id="Graphic_7">
+          <circle cx="468.25" cy="816" r="6.5000103863623" fill="black"/>
+          <circle cx="468.25" cy="816" r="6.5000103863623" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        </g>
+      </g>
+      <g id="Graphic_9">
+        <path d="M 413.2138 583.25 L 521.2138 583.25 C 526.18436 583.25 530.2138 587.27944 530.2138 592.25 L 530.2138 646.25 C 530.2138 651.2206 526.18436 655.25 521.2138 655.25 L 413.2138 655.25 C 408.24323 655.25 404.2138 651.2206 404.2138 646.25 L 404.2138 592.25 C 404.2138 587.27944 408.24323 583.25 413.2138 583.25 Z" fill="white"/>
+        <path d="M 413.2138 583.25 L 521.2138 583.25 C 526.18436 583.25 530.2138 587.27944 530.2138 592.25 L 530.2138 646.25 C 530.2138 651.2206 526.18436 655.25 521.2138 655.25 L 413.2138 655.25 C 408.24323 655.25 404.2138 651.2206 404.2138 646.25 L 404.2138 592.25 C 404.2138 587.27944 408.24323 583.25 413.2138 583.25 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(409.2138 600.802)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="21.256" y="15">Rehydrate </tspan>
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="34.592" y="33.448">Primer</tspan>
+        </text>
+      </g>
+      <g id="Graphic_10">
+        <rect x="607.5" y="652" width="144" height="36" fill="white"/>
+        <rect x="607.5" y="652" width="144" height="36" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(612.5 661.5)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="14" font-weight="400" fill="black" x="22.662" y="13">Primer Aliquot</tspan>
+        </text>
+      </g>
+      <g id="Graphic_11">
+        <rect x="172.5" y="643" width="144" height="36" fill="white"/>
+        <rect x="172.5" y="643" width="144" height="36" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(177.5 652.5)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="14" font-weight="400" fill="black" x="26.421" y="13">Primer Stock</tspan>
+        </text>
+      </g>
+      <g id="Graphic_12">
+        <path d="M 413.2138 694 L 521.2138 694 C 526.18436 694 530.2138 698.0294 530.2138 703 L 530.2138 757 C 530.2138 761.9706 526.18436 766 521.2138 766 L 413.2138 766 C 408.24323 766 404.2138 761.9706 404.2138 757 L 404.2138 703 C 404.2138 698.0294 408.24323 694 413.2138 694 Z" fill="white"/>
+        <path d="M 413.2138 694 L 521.2138 694 C 526.18436 694 530.2138 698.0294 530.2138 703 L 530.2138 757 C 530.2138 761.9706 526.18436 766 521.2138 766 L 413.2138 766 C 408.24323 766 404.2138 761.9706 404.2138 757 L 404.2138 703 C 404.2138 698.0294 408.24323 694 413.2138 694 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(409.2138 711.552)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="12.656" y="15">Make Primer </tspan>
+          <tspan font-family="Helvetica Neue" font-size="16" font-weight="400" fill="black" x="32.96" y="33.448">Aliquot</tspan>
+        </text>
+      </g>
+      <g id="Graphic_13">
+        <rect x="172.5" y="759.5" width="144" height="36" fill="white"/>
+        <rect x="172.5" y="759.5" width="144" height="36" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(177.5 769)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="14" font-weight="400" fill="black" x="22.662" y="13">Primer Aliquot</tspan>
+        </text>
+      </g>
+      <g id="Line_14">
+        <line x1="468.0635" y1="431.4981" x2="467.4189" y2="462.6021" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_15">
+        <line x1="530.2138" y1="532.5" x2="597.9464" y2="550.9041" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_16">
+        <line x1="607.5" y1="571.5" x2="539.67705" y2="592.34195" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_17">
+        <line x1="530.2138" y1="643.25" x2="597.8512" y2="658.784" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_18">
+        <line x1="404.2138" y1="631.25" x2="326.1341" y2="649.7209" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_19">
+        <line x1="607.5" y1="679" x2="539.5599" y2="702.7349" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_20">
+        <line x1="404.2138" y1="754" x2="326.26744" y2="766.8853" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_21">
+        <line x1="467.2138" y1="766" x2="467.9102" y2="799.6035" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_22">
+        <text transform="translate(210 377.5)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="24" font-weight="400" fill="black" x="11.812" y="23">Primer Workflow</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
