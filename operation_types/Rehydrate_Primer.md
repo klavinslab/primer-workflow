@@ -38,7 +38,6 @@ end
 # frozen_string_literal: true
 
 needs 'Standard Libs/Feedback'
-needs 'Cloning/PrimerModel'
 
 # Rehydrate Primers protocol.
 # Takes a primer and hydrates it yielding a primer aliquot and stock.
@@ -46,9 +45,9 @@ needs 'Cloning/PrimerModel'
 # Note: this protocol assumes details about vendor labeling that may be
 # IDT-specific.
 #
+# TODO: add use of Units
 class Protocol
   include Feedback
-  include PrimerModel
 
   def main
     operations.retrieve interactive: false
@@ -76,9 +75,11 @@ class Protocol
   #
   # @param primers [Array<Item>] the input primers
   def spin_down_primers(_primers)
+    # TODO: reference the tubes
     show do
       title 'Quick spin down all the primer tubes'
-      note 'Put all the primer tubes in a table top centrifuge to spin down for 3 seconds.'
+      note 'Place the primer tubes in a table top centrifuge and spin down ' \
+           'for 3 seconds.'
       warning 'Make sure to balance!'
     end
   end
@@ -89,8 +90,10 @@ class Protocol
     show do
       title 'Enter the nMoles of the primer'
 
-      note 'Enter the number of moles for each primer, in nM. This is written toward the bottom of the tube, below the MW.'
-      note "The ID of the primer is listed before the primer's name on the side of the tube."
+      note 'Enter the number of moles for each primer, in nM. ' \
+           'This is written toward the bottom of the tube, below the MW.'
+      note 'The ID of the primer is listed before the primer\'s name on the ' \
+           'side of the tube.'
       table operations
         .start_table
         .input_sample('Primer')
@@ -107,12 +110,15 @@ class Protocol
     show do
       title 'Label and rehydrate'
 
-      note 'Label each primer tube with the IDs shown in Primer Stock IDs and rehydrate with volume of TE shown in Rehydrate'
+      note 'Label each primer tube with the IDs shown in Primer Stock IDs ' \
+           'and rehydrate with volume of TE shown in Rehydrate'
       table operations
         .start_table
         .input_sample('Primer')
         .output_item('Primer Stock')
-        .custom_column(heading: 'Rehydrate (uL of TE)', checkable: true) { |op| op.temporary[:n_moles] * 10 }
+        .custom_column(
+          heading: 'Rehydrate (uL of TE)', checkable: true
+        ) { |op| op.temporary[:n_moles] * 10 }
         .end_table
     end
   end
@@ -124,7 +130,8 @@ class Protocol
     show do
       title 'Vortex and centrifuge'
       note 'Wait one minute for the primer to dissolve in TE.' if count < 7
-      note 'Vortex each tube on table-top vortexer for 5 seconds and then quick spin for 2 seconds on table top centrifuge.'
+      note 'Vortex each tube on table-top vortexer for 5 seconds and then ' \
+           'quick spin for 2 seconds on table top centrifuge.'
     end
   end
 
@@ -144,14 +151,16 @@ class Protocol
     end
   end
 
-  # Displays instructions to transfer 10uL of the primer stock. into each output tube.
+  # Displays instructions to transfer 10uL of the primer stock into each output
+  # tube.
   #
   # @param operations [OperationList] the operations with output primers
   def make_aliquots(operations)
     show do
       title 'Make primer aliquots'
 
-      note 'Add 10 uL from each primer stock into each primer aliquot tube using the following table.'
+      note 'Add 10 uL from each primer stock into each primer aliquot tube ' \
+           'using the following table.'
 
       table operations
         .start_table
