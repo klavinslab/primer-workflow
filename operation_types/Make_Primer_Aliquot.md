@@ -1,63 +1,8 @@
 # Make Primer Aliquot
 
-name: Make Primer Aliquot
----
+# Make Primer Aliquot
 
-category: Cloning
----
-
-This protocol uses an existing Primer stock in inventory to make a 1:10 diluted 100L aliquot of that primer.
-
-
-## Arguments
-
-- `Stock` &mdash; input primer stock
-
-## Parameters
-
-_None_
-
-## Output
-
-- `Aliquot` &mdash; the output 1:10 diluted primer aliquot.
-
-## Shared (Blackboard) attributes
-
-_None_
-
-## Data associations
-
-_None_
-
-### Item associations
-
-_None_
-
-### Operation associations
-
-_None_
-
-### Plan associations
-
-_None_
-
-## Equipment
-
-_None_
-
-## Supplies
-
-_None_
-
-
-
-
-
-
-
-
-
-
+Makes a 1:10 diluted 100L aliquot of a Primer stock from inventory.
 
 ### Inputs
 
@@ -123,7 +68,8 @@ class Protocol
     show do
       title 'Transfer primer stock into primer aliquot'
 
-      note 'Pipette 10 uL of the primer stock into a tube according to the following table:'
+      note 'Pipette 10 uL of the primer stock into a tube according to the ' \
+           'following table:'
       table operations
         .start_table
         .input_item('Stock')
