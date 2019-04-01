@@ -59,14 +59,20 @@ var config = {
 
           
             {
+              name: 'AbstractSample',
+              path: 'libraries/AbstractSample' + '.html',
+              type: "local-webpage"
+            },
+          
+            {
               name: 'Feedback',
               path: 'libraries/Feedback' + '.html',
               type: "local-webpage"
             },
           
             {
-              name: 'PrimerModel',
-              path: 'libraries/PrimerModel' + '.html',
+              name: 'Primer',
+              path: 'libraries/Primer' + '.html',
               type: "local-webpage"
             },
           
