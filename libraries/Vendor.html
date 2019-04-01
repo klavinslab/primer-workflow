@@ -890,7 +890,7 @@ $(document).ready(function() {
 
 <p>Each vendor corresponds to a sub-module of the Vendor module implementing a
 method `order_primer(Primer)`, where `Primer` is defined in the library
-`Cloning/PrimerModel`</p>
+`Sample Models/Primer`</p>
 
 
   </div>
@@ -926,7 +926,7 @@ method `order_primer(Primer)`, where `Primer` is defined in the library
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#determine_vendor-class_method" title="determine_vendor (class method)">.<strong>determine_vendor</strong>  &#x21d2; Object </a>
+      <a href="#determine_vendor-class_method" title="determine_vendor (class method)">.<strong>determine_vendor</strong>(protocol:)  &#x21d2; Object </a>
     
 
     
@@ -941,8 +941,7 @@ method `order_primer(Primer)`, where `Primer` is defined in the library
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the vendor specified by the user TODO: allow for user to specify
-which vendors they use with Parameters.</p>
+<p>Returns the vendor selected by the user.</p>
 </div></span>
   
 </li>
@@ -960,7 +959,7 @@ which vendors they use with Parameters.</p>
       <div class="method_details first">
   <h3 class="signature first" id="determine_vendor-class_method">
   
-    .<strong>determine_vendor</strong>  &#x21d2; <tt>Object</tt> 
+    .<strong>determine_vendor</strong>(protocol:)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -969,14 +968,35 @@ which vendors they use with Parameters.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the vendor specified by the user TODO: allow for user to specify
-which vendors they use with Parameters</p>
+<p>Returns the vendor selected by the user.</p>
+
+<p>TODO: allow for user to specify which vendors they use with Parameters</p>
 
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>protocol</span>
+      
+      
+        <span class='type'>(<tt>Protocol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the protocol where output should be displayed</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -984,6 +1004,8 @@ which vendors they use with Parameters</p>
       <pre class="lines">
 
 
+15
+16
 17
 18
 19
@@ -997,17 +1019,21 @@ which vendors they use with Parameters</p>
 27
 28
 29
-30</pre>
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Vendor.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'Vendor.rb', line 15</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_determine_vendor'>determine_vendor</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_determine_vendor'>determine_vendor</span><span class='lparen'>(</span><span class='label'>protocol:</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_vendors'>vendors</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>IDT</span><span class='words_sep'> </span><span class='tstring_content'>Sigma-Aldrich</span><span class='tstring_end'>]</span></span>
-  <span class='comment'>#vendors = vendors.reject { |v| Parameter.get(&quot;#{v} User&quot;).blank? }
+  <span class='comment'># vendors = vendors.reject { |v| Parameter.get(&quot;#{v} User&quot;).blank? }
 </span>
-  <span class='id identifier rubyid_vendor_show_hash'>vendor_show_hash</span> <span class='op'>=</span> <span class='const'>Wrapper</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_show'>show</span> <span class='kw'>do</span>
-    <span class='id identifier rubyid_select'>select</span> <span class='id identifier rubyid_vendors'>vendors</span><span class='comma'>,</span> <span class='label'>var:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>vendor</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>label:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Select the vendor you will be ordering primers from</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>default:</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_vendor_show_hash'>vendor_show_hash</span> <span class='op'>=</span> <span class='id identifier rubyid_protocol'>protocol</span><span class='period'>.</span><span class='id identifier rubyid_show'>show</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_select'>select</span><span class='lparen'>(</span><span class='id identifier rubyid_vendors'>vendors</span><span class='comma'>,</span>
+           <span class='label'>var:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>vendor</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+           <span class='label'>label:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Select the vendor you will be ordering primers from</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+           <span class='label'>default:</span> <span class='int'>0</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
   <span class='kw'>if</span> <span class='id identifier rubyid_vendor_show_hash'>vendor_show_hash</span><span class='period'>.</span><span class='id identifier rubyid_value?'>value?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>IDT</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -1058,7 +1084,7 @@ which vendors they use with Parameters</p>
     
 <p>Defines common methods for primer vendors.</p>
 
-<p>Each vendor should have a module that includes this one.</p>
+<p>If you add a vendor, extend the module with this one.</p>
 
 
   </div>
@@ -1099,7 +1125,7 @@ which vendors they use with Parameters</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>creates a primer table for copy-pasting.</p>
+<p>Creates a primer table with entries for this vendor.</p>
 </div></span>
   
 </li>
@@ -1108,7 +1134,7 @@ which vendors they use with Parameters</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#login_helper-instance_method" title="#login_helper (instance method)">#<strong>login_helper</strong>(url:, name:)  &#x21d2; Object </a>
+      <a href="#login_helper-instance_method" title="#login_helper (instance method)">#<strong>login_helper</strong>(protocol:, url:, name:)  &#x21d2; Object </a>
     
 
     
@@ -1150,13 +1176,34 @@ which vendors they use with Parameters</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>creates a primer table for copy-pasting</p>
+<p>Creates a primer table with entries for this vendor. Note: uses vendor
+module definitions of primer_table_row.</p>
 
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>primers</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the primers to be ordered</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -1164,18 +1211,18 @@ which vendors they use with Parameters</p>
       <pre class="lines">
 
 
-51
-52
-53
-54
-55</pre>
+59
+60
+61
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Vendor.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'Vendor.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_build_primer_table'>build_primer_table</span><span class='lparen'>(</span><span class='label'>primers:</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_primers'>primers</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_primer'>primer</span><span class='op'>|</span>
-    <span class='id identifier rubyid_primer_table_entry'>primer_table_entry</span><span class='lparen'>(</span><span class='label'>sample:</span> <span class='id identifier rubyid_primer'>primer</span><span class='period'>.</span><span class='id identifier rubyid_sample'>sample</span><span class='comma'>,</span> <span class='label'>sequence:</span> <span class='id identifier rubyid_primer'>primer</span><span class='period'>.</span><span class='id identifier rubyid_sequence'>sequence</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_primer_table_row'>primer_table_row</span><span class='lparen'>(</span><span class='label'>sample:</span> <span class='id identifier rubyid_primer'>primer</span><span class='period'>.</span><span class='id identifier rubyid_sample'>sample</span><span class='comma'>,</span> <span class='label'>sequence:</span> <span class='id identifier rubyid_primer'>primer</span><span class='period'>.</span><span class='id identifier rubyid_sequence'>sequence</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1186,7 +1233,7 @@ which vendors they use with Parameters</p>
       <div class="method_details ">
   <h3 class="signature " id="login_helper-instance_method">
   
-    #<strong>login_helper</strong>(url:, name:)  &#x21d2; <tt>Object</tt> 
+    #<strong>login_helper</strong>(protocol:, url:, name:)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1201,7 +1248,59 @@ which vendors they use with Parameters</p>
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>protocol</span>
+      
+      
+        <span class='type'>(<tt>Protocol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the protocol where output should be displayed</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>url</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the URL for the vendor website</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the login name for the vendor website</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -1209,28 +1308,32 @@ which vendors they use with Parameters</p>
       <pre class="lines">
 
 
-39
-40
-41
 42
 43
 44
 45
 46
 47
-48</pre>
+48
+49
+50
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Vendor.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'Vendor.rb', line 42</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_login_helper'>login_helper</span><span class='lparen'>(</span><span class='label'>url:</span><span class='comma'>,</span> <span class='label'>name:</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_login_helper'>login_helper</span><span class='lparen'>(</span><span class='label'>protocol:</span><span class='comma'>,</span> <span class='label'>url:</span><span class='comma'>,</span> <span class='label'>name:</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='const'>Parameter</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'> User</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_password'>password</span> <span class='op'>=</span> <span class='const'>Parameter</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'> Password</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='const'>Wrapper</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_show'>show</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_protocol'>protocol</span><span class='period'>.</span><span class='id identifier rubyid_show'>show</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_title'>title</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Prepare to order primer</span><span class='tstring_end'>&#39;</span></span>
 
-    <span class='id identifier rubyid_check'>check</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Go to the &lt;a href=&#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_url'>url</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'> website&lt;/a&gt;, log in with the account (Username: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span class='tstring_content'>, password is </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_password'>password</span><span class='embexpr_end'>}</span><span class='tstring_content'>).</span><span class='tstring_end'>&quot;</span></span>
-    <span class='id identifier rubyid_warning'>warning</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Ensure that you are logged in to this exact username and password!</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_check'>check</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Go to the &lt;a href=&#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_url'>url</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'> website&lt;/a&gt;, log in with </span><span class='tstring_end'>&quot;</span></span> \
+          <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>the account (Username: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span class='tstring_content'>, password is </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_password'>password</span><span class='embexpr_end'>}</span><span class='tstring_content'>).</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_warning'>warning</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Ensure that you are logged in to this exact username </span><span class='tstring_end'>&#39;</span></span> \
+            <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>and password!</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1273,7 +1376,7 @@ which vendors they use with Parameters</p>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>stores IDT information</p>
+<p>Module for making orders from IDT.</p>
 
 
   </div>
@@ -1344,7 +1447,7 @@ which vendors they use with Parameters</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#display_primer_table-class_method" title="display_primer_table (class method)">.<strong>display_primer_table</strong>(primer_tab, short_primers, long_primers)  &#x21d2; Object </a>
+      <a href="#display_primer_table-class_method" title="display_primer_table (class method)">.<strong>display_primer_table</strong>(protocol:, primer_tab:, short_primers:, long_primers:)  &#x21d2; Object </a>
     
 
     
@@ -1359,7 +1462,7 @@ which vendors they use with Parameters</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>shows the primer table that was created in an earlier call and sets the
+<p>Shows the primer table that was created in an earlier call and sets the
 output data.</p>
 </div></span>
   
@@ -1369,7 +1472,7 @@ output data.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#login-class_method" title="login (class method)">.<strong>login</strong>  &#x21d2; Object </a>
+      <a href="#login-class_method" title="login (class method)">.<strong>login</strong>(protocol:)  &#x21d2; Object </a>
     
 
     
@@ -1383,7 +1486,9 @@ output data.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Displays instructions to login to IDT website.</p>
+</div></span>
   
 </li>
 
@@ -1391,7 +1496,7 @@ output data.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#order_primers-class_method" title="order_primers (class method)">.<strong>order_primers</strong>(primers)  &#x21d2; Object </a>
+      <a href="#order_primers-class_method" title="order_primers (class method)">.<strong>order_primers</strong>(protocol:, primers:)  &#x21d2; String </a>
     
 
     
@@ -1405,7 +1510,9 @@ output data.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Displays the instructions to order the list of primers from IDT.</p>
+</div></span>
   
 </li>
 
@@ -1413,7 +1520,7 @@ output data.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#primer_table_entry-class_method" title="primer_table_entry (class method)">.<strong>primer_table_entry</strong>(sample:, sequence:)  &#x21d2; Object </a>
+      <a href="#primer_table_row-class_method" title="primer_table_row (class method)">.<strong>primer_table_row</strong>(sample:, sequence:)  &#x21d2; Object </a>
     
 
     
@@ -1427,7 +1534,9 @@ output data.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array representing a table row.</p>
+</div></span>
   
 </li>
 
@@ -1478,25 +1587,25 @@ output data.</p>
       <pre class="lines">
 
 
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92</pre>
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Vendor.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'Vendor.rb', line 93</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_build_primer_lists'>build_primer_lists</span><span class='lparen'>(</span><span class='id identifier rubyid_primers'>primers</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_short_primers'>short_primers</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -1522,7 +1631,7 @@ output data.</p>
       <div class="method_details ">
   <h3 class="signature " id="display_primer_table-class_method">
   
-    .<strong>display_primer_table</strong>(primer_tab, short_primers, long_primers)  &#x21d2; <tt>Object</tt> 
+    .<strong>display_primer_table</strong>(protocol:, primer_tab:, short_primers:, long_primers:)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1531,14 +1640,82 @@ output data.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>shows the primer table that was created in an earlier call and sets the
+<p>Shows the primer table that was created in an earlier call and sets the
 output data.</p>
 
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>protocol</span>
+      
+      
+        <span class='type'>(<tt>Protocol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the protocol where output should be displayed</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>primer_tab</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Array&lt;String&gt;&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>matrix for order table</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>short_primers</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the string of short primers</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>long_primers</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the string of long primers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -1546,46 +1723,78 @@ output data.</p>
       <pre class="lines">
 
 
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114</pre>
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Vendor.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'Vendor.rb', line 117</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_display_primer_table'>display_primer_table</span><span class='lparen'>(</span><span class='id identifier rubyid_primer_tab'>primer_tab</span><span class='comma'>,</span> <span class='id identifier rubyid_short_primers'>short_primers</span><span class='comma'>,</span> <span class='id identifier rubyid_long_primers'>long_primers</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>Wrapper</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_show'>show</span> <span class='kw'>do</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_display_primer_table'>display_primer_table</span><span class='lparen'>(</span><span class='label'>protocol:</span><span class='comma'>,</span> <span class='label'>primer_tab:</span><span class='comma'>,</span> <span class='label'>short_primers:</span><span class='comma'>,</span> <span class='label'>long_primers:</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='id identifier rubyid_protocol'>protocol</span><span class='period'>.</span><span class='id identifier rubyid_show'>show</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_title'>title</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Create an IDT DNA oligos order</span><span class='tstring_end'>&#39;</span></span>
 
-    <span class='id identifier rubyid_warning'>warning</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Oligo concentration for primer(s) </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_short_primers'>short_primers</span><span class='embexpr_end'>}</span><span class='tstring_content'> will have to be set to \&quot;100 nmole DNA oligo.\&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_short_primers'>short_primers</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
-    <span class='id identifier rubyid_warning'>warning</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Oligo concentration for primer(s) </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_long_primers'>long_primers</span><span class='embexpr_end'>}</span><span class='tstring_content'> will have to be set to \&quot;250 nmole DNA oligo.\&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_long_primers'>long_primers</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_short_primers'>short_primers</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_warning'>warning</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Oligo concentration for primer(s) </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_short_primers'>short_primers</span><span class='embexpr_end'>}</span><span class='tstring_content'> will </span><span class='tstring_end'>&quot;</span></span> \
+              <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>have to be set to &quot;100 nmole DNA oligo.&quot;</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_long_primers'>long_primers</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_warning'>warning</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Oligo concentration for primer(s) </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_long_primers'>long_primers</span><span class='embexpr_end'>}</span><span class='tstring_content'> will </span><span class='tstring_end'>&quot;</span></span> \
+              <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>have to be set to &quot;250 nmole DNA oligo.&quot;</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>end</span>
 
-    <span class='id identifier rubyid_check'>check</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Under &quot;Custom DNA Oligos&quot;, click &quot;DNA Oligos&quot;, then click &quot;Order now&quot;, and click &quot;Bulk input&quot;. Copy and paste the following table there. </span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_check'>check</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Under &quot;Custom DNA Oligos&quot;, click &quot;DNA Oligos&quot;, </span><span class='tstring_end'>&#39;</span></span> \
+          <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>then click &quot;Order now&quot;, and click &quot;Bulk input&quot;. </span><span class='tstring_end'>&#39;</span></span> \
+          <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Copy and paste the following table there. </span><span class='tstring_end'>&#39;</span></span>
     <span class='id identifier rubyid_table'>table</span> <span class='id identifier rubyid_primer_tab'>primer_tab</span>
 
-    <span class='id identifier rubyid_check'>check</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Click Add to Order, review the shopping cart to double check that you entered correctly. There should be </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_operations'>operations</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='embexpr_end'>}</span><span class='tstring_content'> primers in the cart.</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_check'>check</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Click Add to Order, review the shopping cart to double check </span><span class='tstring_end'>&#39;</span></span> \
+          <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>that you entered correctly. </span><span class='tstring_end'>&#39;</span></span> \
+          <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>There should be </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_operations'>operations</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='embexpr_end'>}</span><span class='tstring_content'> primers in the cart.</span><span class='tstring_end'>&quot;</span></span>
     <span class='id identifier rubyid_check'>check</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Click Checkout, then click Continue.</span><span class='tstring_end'>&#39;</span></span>
-    <span class='id identifier rubyid_check'>check</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Enter the payment information, click the oligo card tab, select the Card1 in Choose Payment and then click Submit Order.</span><span class='tstring_end'>&#39;</span></span>
-    <span class='id identifier rubyid_check'>check</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Go back to the main page, let it sit for 5-10 minutes, return and refresh, and find the order number for the order you just placed.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_check'>check</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Enter the payment information, click the oligo card tab, </span><span class='tstring_end'>&#39;</span></span> \
+          <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>select the Card1 in Choose Payment and then click Submit Order.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_check'>check</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Go back to the main page, let it sit for 5-10 minutes, </span><span class='tstring_end'>&#39;</span></span> \
+          <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>return and refresh, and find the order number for the order </span><span class='tstring_end'>&#39;</span></span> \
+          <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>you just placed.</span><span class='tstring_end'>&#39;</span></span>
 
-    <span class='id identifier rubyid_get'>get</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>text</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>var:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>order_number</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>label:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Enter the IDT order number below</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>default:</span> <span class='int'>100</span>
+    <span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>text</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+        <span class='label'>var:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>order_number</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+        <span class='label'>label:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Enter the IDT order number below</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+        <span class='label'>default:</span> <span class='int'>100</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
   <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:order_number</span><span class='rbracket'>]</span>
@@ -1598,30 +1807,63 @@ output data.</p>
       <div class="method_details ">
   <h3 class="signature " id="login-class_method">
   
-    .<strong>login</strong>  &#x21d2; <tt>Object</tt> 
+    .<strong>login</strong>(protocol:)  &#x21d2; <tt>Object</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Displays instructions to login to IDT website.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>protocol</span>
+      
+      
+        <span class='type'>(<tt>Protocol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the protocol where output should be displayed</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-65
-66
-67
-68
-69
-70</pre>
+76
+77
+78
+79
+80
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Vendor.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'Vendor.rb', line 76</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_login'>login</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_login'>login</span><span class='lparen'>(</span><span class='label'>protocol:</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_login_helper'>login_helper</span><span class='lparen'>(</span>
+    <span class='label'>protocol:</span> <span class='id identifier rubyid_protocol'>protocol</span><span class='comma'>,</span>
     <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://www.idtdna.com/site/account</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
     <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>IDT</span><span class='tstring_end'>&#39;</span></span>
   <span class='rparen'>)</span>
@@ -1634,33 +1876,88 @@ output data.</p>
       <div class="method_details ">
   <h3 class="signature " id="order_primers-class_method">
   
-    .<strong>order_primers</strong>(primers)  &#x21d2; <tt>Object</tt> 
+    .<strong>order_primers</strong>(protocol:, primers:)  &#x21d2; <tt>String</tt> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Displays the instructions to order the list of primers from IDT.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>primers</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Primer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the list of primers to order</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the order number for the order including the primers</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-116
-117
-118
-119
-120
-121
-122</pre>
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Vendor.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'Vendor.rb', line 158</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_order_primers'>order_primers</span><span class='lparen'>(</span><span class='id identifier rubyid_primers'>primers</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_order_primers'>order_primers</span><span class='lparen'>(</span><span class='label'>protocol:</span><span class='comma'>,</span> <span class='label'>primers:</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_primer_table'>primer_table</span> <span class='op'>=</span> <span class='id identifier rubyid_build_primer_table'>build_primer_table</span><span class='lparen'>(</span><span class='label'>primers:</span> <span class='id identifier rubyid_primers'>primers</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_short_primers'>short_primers</span><span class='comma'>,</span> <span class='id identifier rubyid_long_primers'>long_primers</span> <span class='op'>=</span> <span class='id identifier rubyid_build_primer_lists'>build_primer_lists</span><span class='lparen'>(</span><span class='id identifier rubyid_primers'>primers</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_order_number'>order_number</span> <span class='op'>=</span> <span class='id identifier rubyid_display_primer_table'>display_primer_table</span><span class='lparen'>(</span><span class='id identifier rubyid_primer_table'>primer_table</span><span class='comma'>,</span> <span class='id identifier rubyid_short_primers'>short_primers</span><span class='comma'>,</span> <span class='id identifier rubyid_long_primers'>long_primers</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_order_number'>order_number</span> <span class='op'>=</span> <span class='id identifier rubyid_display_primer_table'>display_primer_table</span><span class='lparen'>(</span><span class='label'>protocol:</span> <span class='id identifier rubyid_protocol'>protocol</span><span class='comma'>,</span>
+                                      <span class='label'>primer_tab:</span> <span class='id identifier rubyid_primer_table'>primer_table</span><span class='comma'>,</span>
+                                      <span class='label'>short_primers:</span> <span class='id identifier rubyid_short_primers'>short_primers</span><span class='comma'>,</span>
+                                      <span class='label'>long_primers:</span> <span class='id identifier rubyid_long_primers'>long_primers</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_order_number'>order_number</span>
 <span class='kw'>end</span></pre>
@@ -1670,28 +1967,75 @@ output data.</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="primer_table_entry-class_method">
+  <h3 class="signature " id="primer_table_row-class_method">
   
-    .<strong>primer_table_entry</strong>(sample:, sequence:)  &#x21d2; <tt>Object</tt> 
-  
-
+    .<strong>primer_table_row</strong>(sample:, sequence:)  &#x21d2; <tt>Object</tt> 
   
 
   
-</h3><table class="source_code">
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array representing a table row.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>sample</span>
+      
+      
+        <span class='type'>(<tt>Sample</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the sample object</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>sequence</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the sequence string for the primer</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-72
-73
-74</pre>
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Vendor.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'Vendor.rb', line 88</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_primer_table_entry'>primer_table_entry</span><span class='lparen'>(</span><span class='label'>sample:</span><span class='comma'>,</span> <span class='label'>sequence:</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_primer_table_row'>primer_table_row</span><span class='lparen'>(</span><span class='label'>sample:</span><span class='comma'>,</span> <span class='label'>sequence:</span><span class='rparen'>)</span>
   <span class='lbracket'>[</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_sequence'>sequence</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1734,7 +2078,7 @@ output data.</p>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>stores Sigma-Aldrich information</p>
+<p>Module for making primer orders to Sigma-Aldrich.</p>
 
 
   </div>
@@ -1760,73 +2104,7 @@ output data.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#login-class_method" title="login (class method)">.<strong>login</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#order_primers-class_method" title="order_primers (class method)">.<strong>order_primers</strong>(primers)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#primer_table_entry-class_method" title="primer_table_entry (class method)">.<strong>primer_table_entry</strong>(sample:, sequence:)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#show_primer_table-class_method" title="show_primer_table (class method)">.<strong>show_primer_table</strong>(primer_table)  &#x21d2; Object </a>
+      <a href="#login-class_method" title="login (class method)">.<strong>login</strong>(protocol:)  &#x21d2; Object </a>
     
 
     
@@ -1841,7 +2119,79 @@ output data.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>shows the primer table for if the vendor is Sigma-Aldrich.</p>
+<p>Displays instructions to login to the Sigma-Adrich website.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#order_primers-class_method" title="order_primers (class method)">.<strong>order_primers</strong>(protocol:, primers:)  &#x21d2; nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Displays the instructions to order the list of primers from Sigma-Aldrich.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#primer_table_row-class_method" title="primer_table_row (class method)">.<strong>primer_table_row</strong>(sample:, sequence:)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array representing a table row.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#show_primer_table-class_method" title="show_primer_table (class method)">.<strong>show_primer_table</strong>(protocol:, primer_table:)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Displays the primer table for vendor Sigma-Aldrich.</p>
 </div></span>
   
 </li>
@@ -1870,109 +2220,7 @@ output data.</p>
       <div class="method_details first">
   <h3 class="signature first" id="login-class_method">
   
-    .<strong>login</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-129
-130
-131
-132
-133
-134</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'Vendor.rb', line 129</span>
-
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_login'>login</span>
-  <span class='id identifier rubyid_login_helper'>login_helper</span><span class='lparen'>(</span>
-    <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://www.sigmaaldrich.com/webapp/wcs/stores/servlet/LogonForm?storeId=11001</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-    <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Sigma-Aldrich</span><span class='tstring_end'>&#39;</span></span>
-  <span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="order_primers-class_method">
-  
-    .<strong>order_primers</strong>(primers)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-158
-159
-160
-161
-162
-163</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'Vendor.rb', line 158</span>
-
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_order_primers'>order_primers</span><span class='lparen'>(</span><span class='id identifier rubyid_primers'>primers</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_primer_table'>primer_table</span> <span class='op'>=</span> <span class='id identifier rubyid_build_primer_table'>build_primer_table</span><span class='lparen'>(</span><span class='label'>primers:</span> <span class='id identifier rubyid_primers'>primers</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_order_number'>order_number</span> <span class='op'>=</span> <span class='id identifier rubyid_show_primer_table'>show_primer_table</span><span class='lparen'>(</span><span class='id identifier rubyid_primer_table'>primer_table</span><span class='rparen'>)</span>
-
-  <span class='id identifier rubyid_order_number'>order_number</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="primer_table_entry-class_method">
-  
-    .<strong>primer_table_entry</strong>(sample:, sequence:)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-136
-137
-138</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'Vendor.rb', line 136</span>
-
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_primer_table_entry'>primer_table_entry</span><span class='lparen'>(</span><span class='label'>sample:</span><span class='comma'>,</span> <span class='label'>sequence:</span><span class='rparen'>)</span>
-  <span class='lbracket'>[</span><span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\t</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>None\t</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_sequence'>sequence</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\tNone\t</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.025\t</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Desalt\t</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Dry\t</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>None\t</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="show_primer_table-class_method">
-  
-    .<strong>show_primer_table</strong>(primer_table)  &#x21d2; <tt>Object</tt> 
+    .<strong>login</strong>(protocol:)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -1981,7 +2229,7 @@ output data.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>shows the primer table for if the vendor is Sigma-Aldrich</p>
+<p>Displays instructions to login to the Sigma-Adrich website.</p>
 
 
   </div>
@@ -1995,31 +2243,283 @@ output data.</p>
       <pre class="lines">
 
 
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156</pre>
+175
+176
+177
+178
+179
+180
+181</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'Vendor.rb', line 141</span>
+      <pre class="code"><span class="info file"># File 'Vendor.rb', line 175</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_show_primer_table'>show_primer_table</span><span class='lparen'>(</span><span class='id identifier rubyid_primer_table'>primer_table</span><span class='rparen'>)</span>
-  <span class='const'>Wrapper</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_show'>show</span> <span class='kw'>do</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_login'>login</span><span class='lparen'>(</span><span class='label'>protocol:</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_login_helper'>login_helper</span><span class='lparen'>(</span>
+    <span class='label'>protocol:</span> <span class='id identifier rubyid_protocol'>protocol</span><span class='comma'>,</span>
+    <span class='label'>url:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://www.sigmaaldrich.com/webapp/wcs/stores/servlet/LogonForm?storeId=11001</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Sigma-Aldrich</span><span class='tstring_end'>&#39;</span></span>
+  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="order_primers-class_method">
+  
+    .<strong>order_primers</strong>(protocol:, primers:)  &#x21d2; <tt>nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Displays the instructions to order the list of primers from Sigma-Aldrich.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>primers</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Primer&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the list of primers to order</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>since no order number is given</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+225
+226
+227
+228
+229
+230</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Vendor.rb', line 225</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_order_primers'>order_primers</span><span class='lparen'>(</span><span class='label'>protocol:</span><span class='comma'>,</span> <span class='label'>primers:</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_primer_table'>primer_table</span> <span class='op'>=</span> <span class='id identifier rubyid_build_primer_table'>build_primer_table</span><span class='lparen'>(</span><span class='label'>primers:</span> <span class='id identifier rubyid_primers'>primers</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_show_primer_table'>show_primer_table</span><span class='lparen'>(</span><span class='label'>protocol:</span> <span class='id identifier rubyid_protocol'>protocol</span><span class='comma'>,</span> <span class='label'>primer_table:</span> <span class='id identifier rubyid_primer_table'>primer_table</span><span class='rparen'>)</span>
+
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="primer_table_row-class_method">
+  
+    .<strong>primer_table_row</strong>(sample:, sequence:)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array representing a table row.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>sample</span>
+      
+      
+        <span class='type'>(<tt>Sample</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the sample object</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>sequence</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the sequence string for the primer</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Vendor.rb', line 187</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_primer_table_row'>primer_table_row</span><span class='lparen'>(</span><span class='label'>sample:</span><span class='comma'>,</span> <span class='label'>sequence:</span><span class='rparen'>)</span>
+  <span class='lbracket'>[</span>
+    <span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_sample'>sample</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>None</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='id identifier rubyid_sequence'>sequence</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>None</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.025</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Desalt</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Dry</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>None</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1</span><span class='tstring_end'>&#39;</span></span>
+  <span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\t</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="show_primer_table-class_method">
+  
+    .<strong>show_primer_table</strong>(protocol:, primer_table:)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Displays the primer table for vendor Sigma-Aldrich.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>primer_table</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Array&lt;String&gt;&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the table of primer details</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'Vendor.rb', line 204</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_show_primer_table'>show_primer_table</span><span class='lparen'>(</span><span class='label'>protocol:</span><span class='comma'>,</span> <span class='label'>primer_table:</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_protocol'>protocol</span><span class='period'>.</span><span class='id identifier rubyid_show'>show</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_title'>title</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Create a Sigma-Aldrich DNA oligos order</span><span class='tstring_end'>&#39;</span></span>
 
-    <span class='id identifier rubyid_check'>check</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Under &quot;Products&quot;, click &quot;Custom DNA Oligos&quot;, and then under &quot;Standard DNA Oligos&quot;, click &quot;Order&quot; under &quot;Tubes&quot;.</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_check'>check</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Under &quot;Products&quot;, click &quot;Custom DNA Oligos&quot;, and then under </span><span class='tstring_end'>&#39;</span></span> \
+          <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&quot;Standard DNA Oligos&quot;, click &quot;Order&quot; under &quot;Tubes&quot;.</span><span class='tstring_end'>&#39;</span></span>
     <span class='id identifier rubyid_check'>check</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Click &quot;Upload or Copy &amp; Paste&quot;.</span><span class='tstring_end'>&#39;</span></span>
     <span class='id identifier rubyid_check'>check</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Copy and paste the following table and click submit.</span><span class='tstring_end'>&#39;</span></span>
 
@@ -2029,8 +2529,7 @@ output data.</p>
     <span class='id identifier rubyid_check'>check</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Proceed to Check Out.</span><span class='tstring_end'>&#39;</span></span>
     <span class='id identifier rubyid_check'>check</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Click Check Out and confirm the order.</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>end</span>
-  <span class='comment'># TODO: how is order number handled here?
-</span><span class='kw'>end</span></pre>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
